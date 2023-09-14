@@ -23,50 +23,22 @@ class MyApp extends StatelessWidget{
        appBar: AppBar(
          title: Text("Practice"),
        ),
-       body: Column(
-         mainAxisAlignment: MainAxisAlignment.start,
-         children: [
-           Padding(padding: EdgeInsets.all(10)),
-           TextField(
-             decoration: InputDecoration(border: OutlineInputBorder(),
-             labelText: "First name"
+       body: Center(
+         child: Card(
+           color: Colors.purpleAccent,
+           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+           elevation: 50,
+           child: SizedBox(
+             height: 200,
+             width: 200,
+             child: Center(
+               child: Text("I am a Card"),
              ),
            ),
-           Padding(padding: EdgeInsets.all(10)),
-           TextField(
-             decoration: InputDecoration(border: OutlineInputBorder(),
-                 labelText: "Last name"
-             ),
-           ),
-           Padding(padding: EdgeInsets.all(10)),
-           TextField(
-             decoration: InputDecoration(border: OutlineInputBorder(),
-                 labelText: "Email"
-             ),
-           ),
-           Padding(padding: EdgeInsets.all(10)),
-           ElevatedButton(onPressed: (){}, child: Text("Submit")),
-         ],
+         ),
        ),
      );
    }
  }
-/// Form ***
-// body: Column(
-//   mainAxisAlignment: MainAxisAlignment.start,
-//   children: [
-//     Padding(padding: EdgeInsets.all(20),
-//     child: TextField(decoration: InputDecoration(border: OutlineInputBorder(),labelText: 'First name' ),),
-//     ),
-//     Padding(padding: EdgeInsets.all(20),
-//       child: TextField(decoration: InputDecoration(border: OutlineInputBorder(),labelText: 'Last name' ),),
-//     ),
-//     Padding(padding: EdgeInsets.all(20),
-//       child: TextField(decoration: InputDecoration(border: OutlineInputBorder(),labelText: 'E-mail' ),),
-//     ),
-//     Padding(padding: EdgeInsets.all(20),
-//       child: ElevatedButton(onPressed: (){},child: Text("Submit"),),
-//     )
-//   ],
-// ),
+
 
