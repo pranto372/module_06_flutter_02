@@ -19,24 +19,40 @@ class MyApp extends StatelessWidget{
 
    MySnackBar(message, context){
         return ScaffoldMessenger.of(context).showSnackBar(
-         SnackBar(content: Text(message))
+          SnackBar(content: Text(message))
         );
-     }
+      }
 
+    MyAlertDialog(context){
+       return showDialog(
+       context: context,
+       builder: (BuildContext context){
+         return Expanded(
+             child: AlertDialog(
+               title: Text("Alert !"),
+               content: Text("Do you want to delete?"),
+               actions: [
+                 TextButton(onPressed: (){
+                   MySnackBar("Successfully delete", context);
+                   Navigator.of(context).pop();
+                 }, child: Text("Yes")),
+                 TextButton(onPressed: (){Navigator.of(context).pop();}, child: Text("No")),
+               ],
+             )
+           );
+        }
+     );
+   }
    @override
    Widget build(BuildContext context) {
      return Scaffold(
        appBar: AppBar(
          title: Text("Practice"),
        ),
-       body: Row(
-         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-         children: [
-           TextButton(onPressed: (){MySnackBar("I am a TextButton", context);}, child: Text("TextButton")),
-           ElevatedButton(onPressed: (){MySnackBar("I am a ElevatedButton", context);}, child: Text("ElevatedButton")),
-           OutlinedButton(onPressed: (){MySnackBar("I am a OutlinedButton", context);}, child: Text("OutlinedButton"))
-         ],
-       ),
+        body: Center(
+         child: ElevatedButton(onPressed: (){MyAlertDialog(context);}, child: Text("Click me"),),
+        ),
      );
    }
  }
+
