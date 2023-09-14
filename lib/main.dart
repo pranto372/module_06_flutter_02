@@ -23,22 +23,31 @@ class MyApp extends StatelessWidget{
        appBar: AppBar(
          title: Text("Practice"),
        ),
-       body: Center(
-         child: Card(
-           color: Colors.purpleAccent,
-           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-           elevation: 50,
-           child: SizedBox(
-             height: 200,
-             width: 200,
-             child: Center(
-               child: Text("I am a Card"),
-             ),
-           ),
-         ),
-       ),
+
      );
    }
  }
+/// Icon Class ***
+// body: Center(
+//   child: Icon(Icons.person, size: 50,color: Colors.purpleAccent,),
+// ),
+
+/// Linear Progress ***
+// body: Center(
+//   child: LinearProgressIndicator(
+//     minHeight: 10,
+//     color: Colors.purpleAccent,
+//     backgroundColor: Colors.black,
+//   ),
+// ),
+
+/// Circle Progress ***
+// body: Center(
+//   child: CircularProgressIndicator(
+//     color: Colors.black,
+//     strokeWidth: 5,
+//   ),
+// ),
+
 
 
