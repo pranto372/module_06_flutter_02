@@ -1,53 +1,59 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-main(){
-  runApp(const MyApp());
+void main(){
+  runApp(MyApp());
 }
-class MyApp extends StatelessWidget{
+
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomeActivity(),
+      debugShowCheckedModeBanner: false,
+      home: HomeScreen(),
     );
   }
 }
- class HomeActivity extends StatelessWidget {
-   HomeActivity({super.key});
 
-   @override
-   Widget build(BuildContext context) {
-     return Scaffold(
-       appBar: AppBar(
-         title: Text("Practice"),
-       ),
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
-     );
-   }
- }
-/// Icon Class ***
-// body: Center(
-//   child: Icon(Icons.person, size: 50,color: Colors.purpleAccent,),
-// ),
-
-/// Linear Progress ***
-// body: Center(
-//   child: LinearProgressIndicator(
-//     minHeight: 10,
-//     color: Colors.purpleAccent,
-//     backgroundColor: Colors.black,
-//   ),
-// ),
-
-/// Circle Progress ***
-// body: Center(
-//   child: CircularProgressIndicator(
-//     color: Colors.black,
-//     strokeWidth: 5,
-//   ),
-// ),
-
-
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Center(child: Text("My Shopping List")),
+        actions: [
+          Icon(Icons.shopping_cart),
+        ],
+      ),
+      body: Column(
+        children: [
+          ListTile(
+              leading: Icon(Icons.shopping_basket_rounded),
+            title: Text("Apples"),
+            ),
+          ListTile(
+            leading: Icon(Icons.shopping_basket_rounded),
+            title: Text("Bananas"),
+          ),
+          ListTile(
+            leading: Icon(Icons.shopping_basket_rounded),
+            title: Text("Bread"),
+          ),
+          ListTile(
+            leading: Icon(Icons.shopping_basket_rounded),
+            title: Text("Milk"),
+          ),
+          ListTile(
+            leading: Icon(Icons.shopping_basket_rounded),
+            title: Text("Eggs"),
+          ),
+          ],
+      )
+    );
+  }
+}
 
