@@ -33,126 +33,40 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    // var colors = [
-    //   Colors.purpleAccent,
-    //   Colors.red,
-    //   Colors.black,
-    //   Colors.blue,
-    //   Colors.orange,
-    //   Colors.amber,
-    //   Colors.blueGrey
-    // ];
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('Photo Gallery'),
         centerTitle: true,
       ),
-      body: SizedBox(
-        child: GridView.builder(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3,
-              crossAxisSpacing: 10,
-              mainAxisSpacing: 10,
+      body: ListView.builder(
+        itemBuilder: (context, index) {
+          return ListTile(
+            leading: CircleAvatar(
+              backgroundImage: NetworkImage(imageLink[index]),
             ),
-            itemBuilder: (context, index) {
-              return Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  image: DecorationImage(
-                    image: NetworkImage(imageLink[index]),
-                    fit: BoxFit.cover
-                  )
-                ),
-              );
-            },itemCount: imageLink.length,
-        ),
+            title: Text("Cat"),
+            subtitle: Text("Description of cats $index"),
+            trailing: Icon(Icons.add),
+          );
+        },
+        itemCount: imageLink.length,
       ),
     );
   }
 }
 
-
-
-
-
-
-
-      //       SizedBox(
-      //         child: Padding(
-      //           padding: const EdgeInsets.all(16.0),
-      //           child: GridView.builder(
-      //             physics: const NeverScrollableScrollPhysics(),
-      //             shrinkWrap: true,
-      //             itemCount: imageLink.length,
-      //             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-      //               crossAxisCount: 3,
-      //               mainAxisSpacing: 30,
-      //               crossAxisSpacing: 30,
-      //             ),
-      //             itemBuilder: (context, index) {
-      //               return GridTile(
-      //                 footer: Container(
-      //                   color: Colors.white,
-      //                   child: Padding(
-      //                     padding: const EdgeInsets.only(top: 10),
-      //                     child: Center(
-      //                         child: Text(
-      //                       "Photo $index",
-      //                       style: const TextStyle(fontSize: 20),
-      //                     )),
-      //                   ),
-      //                 ),
-      //                 child: GestureDetector(
-      //                   onTap: () {
-      //                     ScaffoldMessenger.of(context).showSnackBar(
-      //                       SnackBar(
-      //                         content: Text('Image $index clicked!'),
-      //                       ),
-      //                     );
-      //                   },
-      //                   child: Container(
-      //                     height: 150,
-      //                     color: Colors.grey,
-      //                     child: Image.network(
-      //                       imageLink[index],
-      //                       fit: BoxFit.cover,
-      //                     ),
-      //                   ),
-      //                 ),
-      //               );
-      //             },
-      //           ),
-      //         ),
-      //       ),
-      //       SizedBox(
-      //         child: ListView.builder(
-      //           itemCount: 3,
-      //           shrinkWrap: true,
-      //           physics: const NeverScrollableScrollPhysics(),
-      //           itemBuilder: (context, iindex) => ListTile(
-      //             leading: CircleAvatar(
-      //               backgroundImage: NetworkImage(imageLink[iindex]),
-      //             ),
-      //             title: Text('Photo ${iindex + 1}'),
-      //             subtitle: Text('Description of photo ${iindex + 1}'),
-      //           ),
-      //         ),
-      //       ),
-      //       const SizedBox(
-      //         height: 10,
-      //       ),
-      //       FloatingActionButton(
-      //         onPressed: () {
-      //           ScaffoldMessenger.of(context).showSnackBar(
-      //             const SnackBar(
-      //               content: Text('Photos Uploaded Successfully!'),
-      //             ),
-      //           );
-      //         },
-      //         child: const Icon(Icons.upload),
-      //       ),
-      //     ],
-      //   ),
-      // ),
-
+// body: ListView.separated(itemBuilder: (context, index) {
+// return ListTile(
+// leading: CircleAvatar(
+// backgroundImage: NetworkImage(imageLink[index]),
+// ),
+// title: const Text("Cat"),
+// subtitle: Text("Description of cats $index"),
+// trailing: const Icon(Icons.add),
+// );
+// },
+// itemCount: imageLink.length,
+// separatorBuilder: (context, index){
+// return const Divider(height: 10,thickness: 1,);
+// },
+// ),
